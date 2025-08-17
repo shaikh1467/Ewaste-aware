@@ -1,0 +1,411 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   E-Waste Impacts | Environment &amp; Health Awareness
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <style>
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+        }
+        
+        .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .impact-chart {
+            background: conic-gradient(
+                #ef4444 0% 25%,
+                #f59e0b 25% 50%,
+                #10b981 50% 75%,
+                #3b82f6 75% 100%
+            );
+        }
+        
+        .solution-card {
+            background: white;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+        
+        .recycle {
+            border-left-color: #10b981;
+        }
+        
+        .reduce {
+            border-left-color: #3b82f6;
+        }
+        
+        .reuse {
+            border-left-color: #f59e0b;
+        }
+  </style>
+ <meta name="theme-color" content="#10b981">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+  </head>
+ <body class="min-h-screen flex flex-col">
+  <!-- Navigation -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+   <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+     <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
+      <i class="fas fa-recycle text-green-500 text-xl">
+      </i>
+     </div>
+     <span class="font-bold text-gray-800 text-lg md:text-xl">
+      E-Waste Aware
+     </span>
+    </div>
+    <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+     <a class="hover:text-green-500 transition" href="#overview">
+      Overview
+     </a>
+     <a class="hover:text-green-500 transition" href="#impacts">
+      Impacts
+     </a>
+     <a class="hover:text-green-500 transition" href="#solutions">
+      Solutions
+     </a>
+     <a class="hover:text-green-500 transition" href="#news">
+      News
+     </a>
+     <a class="hover:text-green-500 transition" href="#contact">
+      Contact
+     </a>
+    </div>
+    <button class="md:hidden focus:outline-none text-gray-600" id="mobile-menu-button">
+     <i class="fas fa-bars text-2xl">
+     </i>
+    </button>
+   </div>
+   <div class="hidden md:hidden bg-white shadow-md" id="mobile-menu">
+    <a class="block px-4 py-3 border-b border-gray-200 text-gray-700 hover:bg-green-50 hover:text-green-600 transition" href="#overview">
+     Overview
+    </a>
+    <a class="block px-4 py-3 border-b border-gray-200 text-gray-700 hover:bg-green-50 hover:text-green-600 transition" href="#impacts">
+     Impacts
+    </a>
+    <a class="block px-4 py-3 border-b border-gray-200 text-gray-700 hover:bg-green-50 hover:text-green-600 transition" href="#solutions">
+     Solutions
+    </a>
+    <a class="block px-4 py-3 border-b border-gray-200 text-gray-700 hover:bg-green-50 hover:text-green-600 transition" href="#news">
+     News
+    </a>
+    <a class="block px-4 py-3 text-gray-700 hover:bg-green-50 hover:text-green-600 transition" href="#contact">
+     Contact
+    </a>
+   </div>
+  </nav>
+  <!-- Hero Section -->
+  <header class="hero-gradient text-white py-20 px-6 md:px-12 text-center">
+   <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+    Understanding the Impact of E-Waste on Environment &amp; Health
+   </h1>
+   <p class="max-w-3xl mx-auto text-lg md:text-xl font-light mb-8">
+    Learn how electronic waste affects our planet and health, and discover ways to reduce your footprint.
+   </p>
+   <a class="inline-block bg-white text-green-600 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-green-50 transition" href="#overview">
+    Get Started
+   </a>
+  </header>
+  <main class="flex-grow max-w-6xl mx-auto px-6 md:px-12 py-12 space-y-20">
+   <!-- Overview Section -->
+   <section class="scroll-mt-24" id="overview">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+     What is E-Waste?
+    </h2>
+    <div class="flex flex-col md:flex-row md:space-x-12 items-center">
+     <img alt="Pile of discarded electronic devices in a recycling center" class="rounded-lg shadow-lg mb-6 md:mb-0 md:w-1/2 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/758b9e23-6b3f-4cb4-61f3-36bd3eec6d22.jpg" width="400"/>
+     <div class="md:w-1/2 text-gray-700 text-lg leading-relaxed">
+      <p>
+       Electronic waste, or e-waste, refers to discarded electrical or electronic devices. Improper disposal of e-waste can lead to environmental pollution and health hazards due to toxic substances like lead, mercury, and cadmium.
+      </p>
+      <p class="mt-4">
+       With the rapid advancement of technology, e-waste is growing exponentially worldwide, making awareness and responsible management crucial.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- Impacts Section -->
+   <section class="scroll-mt-24" id="impacts">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+     Impacts of E-Waste
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+     <div class="stat-card bg-white rounded-lg p-6 shadow-md flex flex-col items-center text-center">
+      <i class="fas fa-skull-crossbones text-red-500 text-4xl mb-4">
+      </i>
+      <h3 class="text-xl font-semibold mb-2">
+       Toxic Chemicals
+      </h3>
+      <p class="text-gray-600">
+       E-waste releases harmful chemicals like lead and mercury that contaminate soil and water.
+      </p>
+     </div>
+     <div class="stat-card bg-white rounded-lg p-6 shadow-md flex flex-col items-center text-center">
+      <i class="fas fa-cloud-showers-heavy text-yellow-500 text-4xl mb-4">
+      </i>
+      <h3 class="text-xl font-semibold mb-2">
+       Air Pollution
+      </h3>
+      <p class="text-gray-600">
+       Burning e-waste emits toxic fumes causing respiratory problems and environmental damage.
+      </p>
+     </div>
+     <div class="stat-card bg-white rounded-lg p-6 shadow-md flex flex-col items-center text-center">
+      <i class="fas fa-heartbeat text-green-500 text-4xl mb-4">
+      </i>
+      <h3 class="text-xl font-semibold mb-2">
+       Health Risks
+      </h3>
+      <p class="text-gray-600">
+       Exposure to e-waste toxins can lead to neurological damage, cancer, and other serious health issues.
+      </p>
+     </div>
+     <div class="stat-card bg-white rounded-lg p-6 shadow-md flex flex-col items-center text-center">
+      <i class="fas fa-globe-americas text-blue-500 text-4xl mb-4">
+      </i>
+      <h3 class="text-xl font-semibold mb-2">
+       Environmental Damage
+      </h3>
+      <p class="text-gray-600">
+       E-waste contributes to soil degradation, water contamination, and loss of biodiversity.
+      </p>
+     </div>
+    </div>
+    <div class="mt-12 flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-12">
+     <div class="w-64 h-64 rounded-full impact-chart relative flex items-center justify-center shadow-lg">
+      <div class="absolute inset-0 rounded-full bg-white flex flex-col items-center justify-center p-6 text-center">
+       <h3 class="text-xl font-semibold mb-2">
+        E-Waste Impact Breakdown
+       </h3>
+       <ul class="text-sm text-gray-700 space-y-1">
+        <li>
+         <span class="inline-block w-3 h-3 bg-red-500 rounded-full mr-2">
+         </span>
+         Toxic Chemicals - 25%
+        </li>
+        <li>
+         <span class="inline-block w-3 h-3 bg-yellow-500 rounded-full mr-2">
+         </span>
+         Air Pollution - 25%
+        </li>
+        <li>
+         <span class="inline-block w-3 h-3 bg-green-500 rounded-full mr-2">
+         </span>
+         Health Risks - 25%
+        </li>
+        <li>
+         <span class="inline-block w-3 h-3 bg-blue-500 rounded-full mr-2">
+         </span>
+         Environmental Damage - 25%
+        </li>
+       </ul>
+      </div>
+     </div>
+     <img alt="Illustration showing pollution and health effects caused by e-waste" class="rounded-lg shadow-lg md:w-1/2 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/a5ba43e5-6fef-4d6f-8bc0-0a1c085db73e.jpg" width="400"/>
+    </div>
+   </section>
+   <!-- Solutions Section -->
+   <section class="scroll-mt-24" id="solutions">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+     How to Reduce E-Waste
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+     <div class="solution-card recycle rounded-lg p-6 shadow-md hover:shadow-xl cursor-pointer">
+      <div class="flex items-center mb-4">
+       <i class="fas fa-recycle text-green-500 text-3xl mr-3">
+       </i>
+       <h3 class="text-xl font-semibold">
+        Recycle Properly
+       </h3>
+      </div>
+      <p class="text-gray-700">
+       Take your old electronics to certified e-waste recycling centers to ensure safe processing and material recovery.
+      </p>
+     </div>
+     <div class="solution-card reduce rounded-lg p-6 shadow-md hover:shadow-xl cursor-pointer">
+      <div class="flex items-center mb-4">
+       <i class="fas fa-ban text-blue-500 text-3xl mr-3">
+       </i>
+       <h3 class="text-xl font-semibold">
+        Reduce Consumption
+       </h3>
+      </div>
+      <p class="text-gray-700">
+       Buy only what you need and choose durable electronics to minimize waste generation.
+      </p>
+     </div>
+     <div class="solution-card reuse rounded-lg p-6 shadow-md hover:shadow-xl cursor-pointer">
+      <div class="flex items-center mb-4">
+       <i class="fas fa-sync-alt text-yellow-500 text-3xl mr-3">
+       </i>
+       <h3 class="text-xl font-semibold">
+        Reuse &amp; Repair
+       </h3>
+      </div>
+      <p class="text-gray-700">
+       Extend the life of your devices by repairing or donating them instead of discarding.
+      </p>
+     </div>
+    </div>
+   </section>
+   <!-- News Section -->
+   <section class="scroll-mt-24" id="news">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+     Latest News on E-Waste
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+     <article class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+      <img alt="E-Waste recycling facility with workers sorting electronics" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/898ce6d9-0d23-4a28-d974-c84d2b58ea73.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h3 class="text-xl font-semibold mb-2">
+        New E-Waste Recycling Plant Opens
+       </h3>
+       <p class="text-gray-600 flex-grow">
+        A state-of-the-art recycling plant has opened to handle increasing e-waste volumes safely and efficiently.
+       </p>
+       <time class="mt-4 text-sm text-gray-400" datetime="2024-06-01">
+        June 1, 2024
+       </time>
+      </div>
+     </article>
+     <article class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+      <img alt="Community e-waste collection drive with volunteers gathering electronics" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/ca3acefe-7d38-4965-b078-b2a8d1e1de19.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h3 class="text-xl font-semibold mb-2">
+        Community Drives Boost Recycling Rates
+       </h3>
+       <p class="text-gray-600 flex-grow">
+        Local communities are organizing collection drives to encourage responsible e-waste disposal.
+       </p>
+       <time class="mt-4 text-sm text-gray-400" datetime="2024-05-15">
+        May 15, 2024
+       </time>
+      </div>
+     </article>
+     <article class="bg-white rounded-lg shadow-md overflow-hidden flex flex-col">
+      <img alt="Infographic showing e-waste statistics and recycling benefits" class="w-full h-48 object-cover" height="300" src="https://storage.googleapis.com/a1aa/image/e66de436-80dd-46a4-1ecf-b0f492bf2901.jpg" width="600"/>
+      <div class="p-6 flex flex-col flex-grow">
+       <h3 class="text-xl font-semibold mb-2">
+        E-Waste Recycling Statistics 2024
+       </h3>
+       <p class="text-gray-600 flex-grow">
+        Recent data highlights the positive impact of increased recycling efforts worldwide.
+       </p>
+       <time class="mt-4 text-sm text-gray-400" datetime="2024-04-30">
+        April 30, 2024
+       </time>
+      </div>
+     </article>
+    </div>
+   </section>
+   <!-- Contact Section -->
+   <section class="scroll-mt-24 max-w-3xl mx-auto" id="contact">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">
+     Get in Touch
+    </h2>
+    <form class="bg-white rounded-lg shadow-md p-8 space-y-6" id="contact-form" novalidate="">
+     <div>
+      <label class="block text-gray-700 font-semibold mb-2" for="name">
+       Name
+      </label>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" id="name" name="name" placeholder="Your full name" required="" type="text"/>
+     </div>
+     <div>
+      <label class="block text-gray-700 font-semibold mb-2" for="email">
+       Email
+      </label>
+      <input class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" id="email" name="email" placeholder="you@example.com" required="" type="email"/>
+     </div>
+     <div>
+      <label class="block text-gray-700 font-semibold mb-2" for="message">
+       Message
+      </label>
+      <textarea class="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-400" id="message" name="message" placeholder="Write your message here..." required="" rows="5"></textarea>
+     </div>
+     <button class="bg-green-600 text-white font-semibold px-6 py-3 rounded-md hover:bg-green-700 transition w-full md:w-auto" type="submit">
+      Send Message
+     </button>
+     <p class="text-green-600 font-semibold mt-4 hidden" id="form-status">
+     </p>
+    </form>
+   </section>
+  </main>
+  <footer class="bg-white border-t border-gray-200 py-6 mt-12">
+   <div class="max-w-6xl mx-auto px-6 md:px-12 text-center text-gray-600 text-sm">
+    © 2024 E-Waste Aware. All rights reserved.
+   </div>
+  </footer>
+  <script>
+   // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact form submission simulation
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+            formStatus.textContent = 'Sending message...';
+            formStatus.classList.remove('hidden');
+            setTimeout(() => {
+                formStatus.textContent = 'Thank you for reaching out! We will get back to you soon.';
+                contactForm.reset();
+            }, 1500);
+        });
+  </script>
+ <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('./service-worker.js').catch(function(err){
+        console.log('ServiceWorker registration failed:', err);
+      });
+    });
+  }
+</script>
+</body>
+</html>
